@@ -6,7 +6,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
+const { sendMailViaGmail } = require("../utils/gmailClient");
 
 const User = require("../models/User");
 const Otp = require("../models/Otp");
@@ -14,23 +14,6 @@ const Otp = require("../models/Otp");
 const allowedUsers = require("../config/allowedUsers");
 
 const router = express.Router();
-
-
-// ======================================================
-// EMAIL CONFIG
-// ======================================================
-
-const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    family: 4, // force IPv4 — Render's network can't route the IPv6 address
-               // Node resolves for smtp.gmail.com, which causes ENETUNREACH
-    auth: {
-        user: process.env.CAMPUS_EMAIL,
-        pass: process.env.CAMPUS_EMAIL_PASSWORD
-    }
-});
 
 
 // ======================================================
@@ -149,8 +132,7 @@ router.post("/send-otp", async (req, res) => {
         // =============================
         // SEND MAIL
         // =============================
-        await transporter.sendMail({
-            from: `"UniSphere Campus" <${process.env.CAMPUS_EMAIL}>`,
+        await sendMailViaGmail({
             to: email,
             subject: "UniSphere OTP Verification",
             html: `
@@ -456,8 +438,7 @@ router.post("/forgot-password-otp", async (req, res) => {
         });
 
         // Send Mail
-        await transporter.sendMail({
-            from: `"UniSphere Campus" <${process.env.CAMPUS_EMAIL}>`,
+        await sendMailViaGmail({
             to: email,
             subject: "Password Reset OTP",
             html: `

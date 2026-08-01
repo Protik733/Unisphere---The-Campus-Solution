@@ -1,21 +1,8 @@
-const nodemailer = require("nodemailer");
+const { sendMailViaGmail } = require("./gmailClient");
 
 const sendEmail = async (email, orderId, paymentId, amount, userId, userName, items) => {
     try {
-        const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            family: 4, // force IPv4 — Render's network can't route the IPv6 address
-                       // Node resolves for smtp.gmail.com, which causes ENETUNREACH
-            auth: {
-                user: process.env.CAMPUS_EMAIL,
-                pass: process.env.CAMPUS_EMAIL_PASSWORD
-            }
-        });
-
-        await transporter.sendMail({
-            from: process.env.CAMPUS_EMAIL,
+        await sendMailViaGmail({
             to: email,
             subject: "Unisphere - Payment Receipt",
             html: `
@@ -65,11 +52,11 @@ const sendEmail = async (email, orderId, paymentId, amount, userId, userName, it
                 </div>
             `
         });
-        
+
         console.log("Email receipt sent successfully!");
-        
+
     } catch (error) {
-        console.error("Nodemailer Error:", error);
+        console.error("Gmail API Error:", error);
     }
 };
 
