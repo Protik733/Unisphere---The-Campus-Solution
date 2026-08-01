@@ -3,6 +3,15 @@
 // ======================================
 require("dotenv").config();
 
+// Render's outbound network can't route IPv6, but Node's default DNS lookup
+// order can still return an IPv6 address first for services like Gmail's
+// SMTP server — causing ENETUNREACH. Prefer IPv4 everywhere in this process.
+try {
+    require("dns").setDefaultResultOrder("ipv4first");
+} catch (e) {
+    // setDefaultResultOrder needs Node 17+; harmless to skip on older Node.
+}
+
 
 // ======================================
 // IMPORTS

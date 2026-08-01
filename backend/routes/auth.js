@@ -21,7 +21,11 @@ const router = express.Router();
 // ======================================================
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    family: 4, // force IPv4 — Render's network can't route the IPv6 address
+               // Node resolves for smtp.gmail.com, which causes ENETUNREACH
     auth: {
         user: process.env.CAMPUS_EMAIL,
         pass: process.env.CAMPUS_EMAIL_PASSWORD
