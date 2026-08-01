@@ -439,6 +439,28 @@ async function editIssuePrompt(id, oldText) {
     }
 }
 // ======================================
+// DELETE ISSUE FUNCTION
+// ======================================
+async function deleteIssue(id) {
+    if (!confirm("Are you sure you want to delete this report?")) return;
+    try {
+        const res = await fetch(`${window.API_BASE}/api/issues/delete/${id}`, {
+            method: "DELETE",
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            showIssues(); // list refresh
+        } else {
+            alert(data.message || "Delete failed!");
+        }
+    } catch (err) {
+        alert("Delete failed! Server error.");
+    }
+}
+
+// ======================================
 // 4. CHAT MESSAGE SEND
 // ======================================
 async function sendStudentMessage(id) {

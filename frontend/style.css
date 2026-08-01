@@ -11,7 +11,7 @@ body {
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; /* height এর বদলে min-height দিলে স্ক্রল করতে সুবিধা হয় */
-    padding: 20px; /* 🌟 মোবাইলে স্ক্রিনের বর্ডারের সাথে যেন লেগে না যায় */
+   padding: 20px 20px 55px; /* 🌟 মোবাইলে স্ক্রিনের বর্ডারের সাথে যেন লেগে না যায় */
 }
 
 .container { 
@@ -124,4 +124,37 @@ input:focus, select:focus {
         padding: 10px;
         font-size: 14px;
     }
+}
+.footer-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.footer-line .dot { opacity: 0.4; }
+.footer-line .mail-icon { vertical-align: -2px; margin-right: 3px; }
+
+.mini-footer {
+    margin-top: 20px;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 12.5px;
+    color: #e2e8f0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+.mini-footer a { color: #93c5fd; text-decoration: none; }
+.mini-footer a:hover { color: #ffffff; text-decoration: underline; }
+
+@media (max-width: 480px) {
+    .mini-footer { font-size: 11.5px; }
+    .mini-footer .footer-line { gap: 5px; }
 }
