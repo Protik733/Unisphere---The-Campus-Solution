@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Authority Panel</title>
+    <link rel="stylesheet" href="canteen.css">
+</head>
+<body>
+
+<div class="mobile-nav">
+    <button onclick="toggleSidebar()">☰</button>
+    <h3>Canteen Panel</h3>
+</div>
+
+<div class="container">
+    <div class="sidebar" id="sidebar">
+        <h2>🍽️ Canteen Panel</h2>
+        <button onclick="showAnalytics()">📊 Sales Analytics</button>
+        <button onclick="showMenu()">🍔 Menu Control</button>
+        <button onclick="showOrders()">🧾 Order Records</button>
+        <button onclick="showPayments()">🔎 Payment Verify</button>
+        <hr style="margin:15px 0;">
+        <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    </div>
+
+    <div class="main" id="content">
+        <h1>Welcome Canteen Authority 👨‍🍳</h1>
+        <p>Select an option from the sidebar</p>
+    </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="canteen.js"></script>
+
+</body>
+</html>

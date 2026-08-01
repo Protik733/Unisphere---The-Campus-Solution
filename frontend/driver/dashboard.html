@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniSphere Driver Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🚌 UniSphere Driver Panel</h1>
+
+    <div class="card">
+
+        <!-- Driver -->
+        <h2 id="driverName">
+            👨‍✈️ Loading Driver...
+        </h2>
+
+        <hr>
+
+        <!-- ========================= -->
+        <!-- SELECT BUS -->
+        <!-- ========================= -->
+
+        <label for="busSelect">
+            <b>Select Bus</b>
+        </label>
+
+        <select id="busSelect">
+            <option value="BUS001">BUS001</option>
+            <option value="BUS002">BUS002</option>
+            <option value="BUS003">BUS003</option>
+            <option value="BUS004">BUS004</option>
+            <option value="BUS005">BUS005</option>
+        </select>
+
+        <br><br>
+
+        <!-- ========================= -->
+        <!-- DEPARTURE TIME -->
+        <!-- ========================= -->
+
+        <label for="departureTime">
+            <b>Next Departure Time</b>
+        </label>
+
+        <input
+            type="time"
+            id="departureTime">
+
+        <br><br>
+
+        <button
+            class="btn-warning"
+            onclick="updateSchedule()">
+            ⏰ Update Departure Time
+        </button>
+
+        <hr>
+
+        <!-- ========================= -->
+        <!-- STATUS -->
+        <!-- ========================= -->
+
+        <h3 id="status">
+            🔴 Offline
+        </h3>
+
+        <hr>
+
+        <!-- ========================= -->
+        <!-- CURRENT STOP -->
+        <!-- ========================= -->
+
+        <label for="currentStop">
+            <b>Current Stop</b>
+        </label>
+
+        <select id="currentStop">
+
+            <option value="University">University</option>
+            <option value="Main Gate">Main Gate</option>
+            <option value="Library">Library</option>
+            <option value="Hostel">Hostel</option>
+            <option value="Academic Block">Academic Block</option>
+            <option value="Canteen">Canteen</option>
+            <option value="City Center">City Center</option>
+            <option value="Railway Station">Railway Station</option>
+            <option value="Airport">Airport</option>
+
+        </select>
+
+        <br><br>
+
+        <!-- ========================= -->
+        <!-- BUTTONS -->
+        <!-- ========================= -->
+
+        <div class="btn-group">
+
+            <button
+                id="onlineBtn"
+                class="btn-success"
+                onclick="goOnline()">
+                🟢 GO ONLINE
+            </button>
+
+            <button
+                id="offlineBtn"
+                class="btn-danger"
+                onclick="goOffline()">
+                🔴 GO OFFLINE
+            </button>
+
+            <button
+                id="logoutBtn"
+                class="btn-primary"
+                onclick="logout()">
+                🚪 Logout
+            </button>
+
+        </div>
+
+        <hr>
+
+        <!-- ========================= -->
+        <!-- CURRENT BUS INFO -->
+        <!-- ========================= -->
+
+        <h3 class="section-title">
+            📊 Current Bus Information
+        </h3>
+
+        <div class="info-box">
+
+            <p>
+                <b>🚌 Selected Bus</b>
+                <span id="currentBus">--</span>
+            </p>
+
+            <p>
+                <b>📍 Current Stop</b>
+                <span id="currentStopView">University</span>
+            </p>
+
+            <p>
+                <b>🕒 Departure</b>
+                <span id="currentTime">--</span>
+            </p>
+
+            <p>
+                <b>📡 GPS Status</b>
+                <span id="gpsStatus">Waiting...</span>
+            </p>
+
+            <p>
+                <b>🌍 Latitude</b>
+                <span id="latitude">--</span>
+            </p>
+
+            <p>
+                <b>🌍 Longitude</b>
+                <span id="longitude">--</span>
+            </p>
+
+            <p>
+                <b>🚍 Speed</b>
+                <span id="speed">0 km/h</span>
+            </p>
+
+            <p>
+                <b>🔌 Socket Status</b>
+                <span id="socketStatus">
+                    🔴 Connecting...
+                </span>
+            </p>
+
+            <p>
+                <b>⏰ Last Update</b>
+                <span id="lastUpdate">--</span>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SOCKET.IO -->
+<!-- ========================= -->
+
+<script src="../config.js"></script>
+<script>document.write('<scr' + 'ipt src="' + window.API_BASE + '/socket.io/socket.io.js"></scr' + 'ipt>');</script>
+
+<!-- ========================= -->
+<!-- DRIVER JS -->
+<!-- ========================= -->
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>

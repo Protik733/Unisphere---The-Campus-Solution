@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Admission Cell",
+    "keywords": [
+      "admission",
+      "admission cell",
+      "apply",
+      "new admission",
+      "ভর্তি",
+      "অ্যাডমিশন"
+    ],
+    "answer": "Admission Cell is located on the Ground Floor of the Main Building. Students can visit here for admission enquiries, document verification, counselling and new admission related support."
+  },
+  {
+    "title": "Accounts Cell",
+    "keywords": [
+      "accounts",
+      "account",
+      "fees",
+      "payment",
+      "fees payment",
+      "ফি",
+      "অ্যাকাউন্ট"
+    ],
+    "answer": "Accounts Cell is located on the Ground Floor of the Main Building. Visit here for fee payment, receipts, dues and financial queries."
+  },
+  {
+    "title": "Registrar Office",
+    "keywords": [
+      "registrar",
+      "register",
+      "registration",
+      "office",
+      "রেজিস্ট্রার"
+    ],
+    "answer": "Registrar Office is located on the Ground Floor of the Main Building. It handles official university records, certificates and administrative matters."
+  },
+  {
+    "title": "Placement Cell",
+    "keywords": [
+      "placement",
+      "job",
+      "internship",
+      "career",
+      "tpo",
+      "প্লেসমেন্ট"
+    ],
+    "answer": "Placement Cell is located on the Ground Floor of the Main Building. Students can visit for campus placements, internships, career guidance and company recruitment."
+  },
+  {
+    "title": "Examination Cell",
+    "keywords": [
+      "exam",
+      "examination",
+      "result",
+      "backlog",
+      "form fillup",
+      "পরীক্ষা"
+    ],
+    "answer": "Examination Cell is located on the First Floor of the Main Building. Students can visit for examination forms, admit cards, results and examination related queries."
+  },
+  {
+    "title": "Library",
+    "keywords": [
+      "library",
+      "book",
+      "books",
+      "reading room",
+      "librarian",
+      "লাইব্রেরি"
+    ],
+    "answer": "Central Library is located on the First Floor of the Main Building. Students can borrow books, access journals, digital resources and use the reading room."
+  }
+]

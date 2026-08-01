@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Cell Panel</title>
+    <link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>📋 Report Cell</h2>
+        
+        <label style="color:#94a3b8; font-size:13px; margin-bottom:5px; display:block;">Filter by Category:</label>
+        <select id="categoryFilter" onchange="applyFilters()" style="width:100%; padding:8px; margin-bottom:15px; border-radius:5px; border:none; outline:none; background: #f8fafc; color: #0f172a; font-weight: bold;">
+            <option value="ALL">All Categories</option>
+            <option value="Admission">Admission</option>
+            <option value="Examination">Examination</option>
+            <option value="Canteen">Canteen</option>
+            <option value="Hostel">Hostel</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <button onclick="setStatusFilter('Pending')">📨 Pending Reports</button>
+        <button onclick="setStatusFilter('In Progress')">⚙️ Under Process</button>
+        <button onclick="setStatusFilter('Resolved')">✅ Solved Reports</button>
+        <button onclick="setStatusFilter('Rejected')">❌ Rejected</button>
+        
+        <hr style="margin: 15px 0; border-color: #334155;">
+        <button onclick="logout()" style="background: #dc2626;">🚪 Logout</button>
+    </div>
+
+    <div class="main" id="content">
+        <h1>Welcome to Report Cell Dashboard</h1>
+        <p>Select filters from the sidebar to view issues.</p>
+    </div>
+</div>
+
+<script src="../config.js"></script>
+<script src="report.js"></script>
+</body>
+</html>

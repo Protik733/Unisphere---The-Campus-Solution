@@ -1,0 +1,82 @@
+[
+  {
+    "roomId": "1001",
+    "type": "Classroom",
+    "area": "108 sqm",
+    "semester": "4,6"
+  },
+  {
+    "roomId": "1006",
+    "type": "Laboratory",
+    "area": "81 sqm",
+    "semester": "1,2"
+  },
+  {
+    "roomId": "1008",
+    "type": "Tutorial Room",
+    "area": "33 sqm",
+    "semester": "1,2,3,4"
+  },
+  {
+    "roomId": "1009",
+    "type": "Classroom",
+    "area": "164 sqm",
+    "semester": "7,8"
+  },
+  {
+    "roomId": "1014",
+    "type": "Laboratory",
+    "area": "82 sqm",
+    "semester": "2,6"
+  },
+  {
+    "roomId": "1015",
+    "type": "Laboratory",
+    "area": "82 sqm",
+    "semester": "2,4"
+  },
+  {
+    "roomId": "1018",
+    "type": "Laboratory",
+    "area": "80 sqm",
+    "semester": "6,8"
+  },
+  {
+    "roomId": "1109",
+    "type": "Seminar Hall",
+    "area": "160 sqm"
+  },
+  {
+    "roomId": "1113",
+    "type": "Laboratory",
+    "area": "160 sqm",
+    "semester": "1,2"
+  },
+  {
+    "roomId": "1114",
+    "type": "Classroom",
+    "area": "80 sqm",
+    "semester": "2,6"
+  },
+  {
+    "roomId": "1115",
+    "type": "Classroom",
+    "area": "80 sqm",
+    "semester": "3,4,5,6"
+  },
+  {
+    "roomId": "1116",
+    "type": "PG Classroom",
+    "area": "80 sqm"
+  },
+  {
+    "roomId": "1117",
+    "type": "PG Laboratory",
+    "area": "81 sqm"
+  },
+  {
+    "roomId": "1119",
+    "type": "Laboratory",
+    "area": "80 sqm"
+  }
+]

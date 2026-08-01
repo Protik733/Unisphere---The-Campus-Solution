@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Unisphere Campus Solution</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+    <!-- TOP NAVBAR -->
+
+    <header class="navbar">
+
+        <div class="logo-section">
+
+            <img src="../logo.png" alt="Logo" class="logo">
+
+            <h2>Unisphere</h2>
+
+        </div>
+
+        <button class="menu-btn" onclick="toggleSidebar()">
+            ☰
+        </button>
+
+    </header>
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="user-box">
+            <h3 id="userName">Student</h3>
+            <p>Campus Solution App</p>
+        </div>
+
+        <button onclick="showHome()">🏠 Home</button>
+
+        <button onclick="showProfile()">👤 Profile</button>
+
+        <button onclick="showCart()">🛒 Cart</button>
+
+        <button onclick="showOrders()">📦 My Orders</button>
+
+        <button onclick="showPayments()">💳 Payments</button>
+
+        <button onclick="showIssues()">📋 My Issues</button>
+
+        <button onclick="logout()">🚪 Logout</button>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main id="content">
+
+        <div class="home">
+
+            <h1>Welcome To Unisphere</h1>
+
+            <p class="subtitle">
+
+                Smart Campus Solution For Students
+
+            </p>
+
+            <!-- FEATURE GRID -->
+
+            <div class="feature-grid">
+
+                <!-- Canteen -->
+
+                <div class="feature-card canteen-card"
+                    onclick="showCanteen()">
+
+                    <div class="feature-icon">
+                        🍽️
+                    </div>
+
+                    <h2>Online Canteen</h2>
+
+                    <p>
+                        Order Food & Drinks Online
+                    </p>
+
+                </div>
+
+                <!-- Report -->
+
+                <div class="feature-card report-card"
+                    onclick="showReport()">
+
+                    <div class="feature-icon">
+                        📋
+                    </div>
+
+                    <h2>Report Issue</h2>
+
+                    <p>
+                        Submit Campus Related Issues
+                    </p>
+
+                </div>
+
+                <!-- Bus Tracking -->
+
+                <div class="feature-card bus-feature-card"
+                    onclick="showBusTracking()">
+
+                    <div class="feature-icon">
+                        🚌
+                    </div>
+
+                    <h2>Bus Tracking</h2>
+
+                    <p>
+                        Track Your University Bus Live
+                    </p>
+
+                </div>
+               <div class="feature-card helpdesk-card" onclick="openHelpDesk()">
+
+    <div class="feature-icon">
+        🤖
+    </div>
+
+    <h2>
+        AI Help Desk
+    </h2>
+
+    <p>
+        Ask university related questions using AI
+    </p>
+
+</div>
+                   </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../config.js"></script>
+    <script src="dashboard.js"></script>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</body>
+
+</html>

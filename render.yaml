@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: unisphere
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        sync: false
+      - key: RAZORPAY_KEY
+        sync: false
+      - key: RAZORPAY_SECRET
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CAMPUS_EMAIL
+        sync: false
+      - key: CAMPUS_EMAIL_PASSWORD
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false

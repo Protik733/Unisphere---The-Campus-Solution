@@ -1,0 +1,731 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#eef2f7;
+overflow-x:hidden;
+}
+
+.navbar{
+height:70px;
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 20px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.logo{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.logo-section{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.menu-btn{
+background:none;
+border:none;
+color:white;
+font-size:32px;
+cursor:pointer;
+}
+
+.sidebar{
+position:fixed;
+top:0;
+left:-280px;
+width:280px;
+height:100%;
+background:#0f172a;
+transition:.4s;
+z-index:2000;
+overflow-y:auto;
+}
+
+.sidebar.show{
+left:0;
+}
+
+.user-box{
+text-align:center;
+padding:25px;
+color:white;
+border-bottom:1px solid #334155;
+}
+
+.sidebar button{
+width:100%;
+padding:16px;
+border:none;
+background:none;
+color:white;
+text-align:left;
+cursor:pointer;
+font-size:15px;
+}
+
+.sidebar button:hover{
+background:#1e293b;
+}
+
+#content{
+padding:20px;
+}
+
+.hero-box{
+background:white;
+padding:35px 20px;
+border-radius:20px;
+text-align:center;
+margin-bottom:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.hero-icon{
+font-size:90px;
+margin-bottom:15px;
+display:block;
+}
+
+.hero-box h1{
+font-size:34px;
+color:#0f172a;
+margin-bottom:10px;
+}
+
+.hero-box p{
+color:#64748b;
+font-size:16px;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:white;
+border-radius:20px;
+padding:40px;
+text-align:center;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+}
+
+.feature-icon{
+font-size:70px;
+margin-bottom:15px;
+}
+
+.canteen-card{
+border-top:6px solid #16a34a;
+}
+
+.report-card{
+border-top:6px solid #2563eb;
+}
+
+.back-btn{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:12px;
+cursor:pointer;
+margin-bottom:20px;
+font-weight:bold;
+}
+
+.back-btn:hover{
+transform:scale(1.03);
+}
+
+.canteen-header,
+.report-header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.canteen-icon,
+.report-icon{
+font-size:80px;
+margin-bottom:10px;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.food-card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+position:relative;
+}
+
+.food-card:hover{
+transform:translateY(-6px);
+}
+
+.food-card::after{
+content:"Available";
+position:absolute;
+top:10px;
+right:10px;
+background:#16a34a;
+color:white;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+}
+
+.food-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.food-card h3{
+padding:12px;
+}
+
+.price{
+padding:0 12px;
+color:#16a34a;
+font-size:20px;
+font-weight:bold;
+}
+
+.food-card button{
+width:90%;
+margin:15px auto;
+display:block;
+border:none;
+padding:12px;
+border-radius:10px;
+background:#16a34a;
+color:white;
+cursor:pointer;
+}
+
+.food-card button:hover{
+background:#15803d;
+}
+
+.profile-card,
+.card{
+background:white;
+border-radius:15px;
+padding:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+form{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+select,
+textarea,
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+}
+
+textarea{
+min-height:140px;
+}
+
+form button{
+width:100%;
+margin-top:15px;
+background:#2563eb;
+color:white;
+border:none;
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.hero-title{
+font-size:34px;
+font-weight:700;
+}
+
+.hero-subtitle{
+font-size:18px;
+}
+
+@media(max-width:768px){
+
+.navbar{
+padding:0 12px;
+}
+
+.logo-section h2{
+font-size:18px;
+}
+
+.hero-icon{
+font-size:65px;
+}
+
+.hero-title{
+font-size:24px;
+}
+
+.hero-subtitle{
+font-size:15px;
+}
+
+.feature-card{
+padding:25px;
+}
+
+.feature-icon{
+font-size:55px;
+}
+
+.food-card img{
+height:180px;
+}
+
+.sidebar{
+width:250px;
+}
+
+#content{
+padding:15px;
+}
+
+}
+.cart-image{
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:10px;
+}
+
+.card{
+    background:#fff;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}/* Cart Styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.qty-btn {
+    padding: 5px 12px;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pay-now-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.pay-now-btn:hover {
+    background-color: #1d4ed8;
+} /* Cart Card Design */
+.cart-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-qty {
+    padding: 8px 16px;
+    background: #1a4f8b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.qty-text {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+    .cart-card { flex-direction: column; text-align: center; }
+}
+.order-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 6px solid #2563eb;
+}
+.order-card h3 { color: #1e293b; margin-bottom: 10px; }
+.order-card p { color: #64748b; font-size: 14px; }
+/* Issue Card Styling */
+.issue-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #3498db; /* পেন্ডিং ইন্ডিকেটর */
+}
+
+.issue-card h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.issue-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-edit:hover { background-color: #d68910; }
+.btn-delete:hover { background-color: #c0392b; }
+details {
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}/* ======================================
+   📋 REPORT ISSUE FORM CSS
+   ====================================== */
+form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form select, 
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+/* ফোকাস করলে বর্ডারের কালার সুন্দর হবে */
+form select:focus, 
+form textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 🌟 সাবমিট বাটন ডিজাইন */
+form button[type="submit"] {
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* অ্যানিমেশনের জন্য */
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+/* 🔥 ম্যাজিক: হোভার করলে বাটনটি একটু কাছে (বড়) আসবে */
+form button[type="submit"]:hover {
+    background: #1d4ed8;
+    transform: translateY(-3px) scale(1.02); /* বাটনটি একটু উপরে উঠবে এবং বড় হবে */
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* ক্লিক করার সময় বাটনটি নরমাল জায়গায় ফিরবে */
+form button[type="submit"]:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+/* ======================================
+   📱 PHONE RESPONSIVENESS (মোবাইলের জন্য)
+   ====================================== */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+        margin: 15px;
+        border-radius: 10px;
+    }
+
+    form select, 
+    form textarea {
+        font-size: 15px; /* মোবাইলে ফন্ট একটু ছোট হবে */
+        padding: 10px 12px;
+    }
+
+    form button[type="submit"] {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+/* ======================================
+   💻 LARGE SCREEN & DESKTOP FIX
+   ====================================== */
+#content {
+    max-width: 1200px; /* বড় স্ক্রিনে কনটেন্ট এর বেশি ছড়াবে না */
+    margin: 0 auto; /* কনটেন্টকে স্ক্রিনের ঠিক মাঝখানে রাখবে */
+    padding: 20px;
+}
+/* ======================================
+   ✨ BEAUTIFUL CUSTOM SCROLLBAR
+   ====================================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eef2f7; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8; 
+}
+/* ======================================
+   📱 TABLET & IPAD RESPONSIVENESS
+   ====================================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .feature-grid, 
+    .menu-grid {
+        /* ট্যাবলেটে সব সময় পাশাপাশি ২টো করে কার্ড দেখাবে */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    
+    .food-card img {
+        height: 200px; /* ট্যাবলেটের জন্য ছবির সাইজ পারফেক্ট করা হলো */
+    }
+}
+/* ======================================
+   📱 MOBILE SAFE AREA & POLISH
+   ====================================== */
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 30px; /* মোবাইলে স্ক্রল করার সময় নিচে একটু ফাঁকা জায়গা থাকবে */
+    }
+
+    /* মোবাইলের নোটিফিকেশন সুন্দর করতে */
+    .hero-box {
+        padding: 25px 15px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+    }
+    
+    /* বাটনগুলো যেন আঙুল দিয়ে চাপতে সুবিধা হয় */
+    button {
+        min-height: 44px; 
+    }
+}
+.bus-item{
+
+cursor:pointer;
+transition:.3s;
+
+}
+
+
+.bus-item:hover{
+
+transform:translateY(-5px);
+
+}
+/* ======================================
+   🚌 BUS CARD SAME AS CANTEEN & REPORT
+====================================== */
+
+
+.bus-card{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    border-top:6px solid #f97316;
+}
+
+
+
+.bus-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.bus-icon{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.bus-card h3{
+
+    font-size:22px;
+
+    color:#0f172a;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.bus-card p{
+
+    color:#64748b;
+
+    font-size:16px;
+
+}
+.helpdesk-card{
+
+    border-top:6px solid #8b5cf6;
+    background:linear-gradient(
+        145deg,
+        #ffffff,
+        #f5f3ff
+    );
+
+}
+
+
+.helpdesk-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 15px 30px rgba(124,58,237,.18);
+
+}

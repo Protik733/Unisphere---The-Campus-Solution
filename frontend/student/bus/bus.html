@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UniSphere Live Bus Tracking</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="bus.css">
+
+</head>
+
+<body class="bus-page">
+
+    <div class="bus-container">
+
+        <!-- ========================= -->
+        <!-- BACK BUTTON -->
+        <!-- ========================= -->
+
+        <button class="back-btn" onclick="history.back()">
+            ← Back
+        </button>
+
+        <!-- ========================= -->
+        <!-- HEADER -->
+        <!-- ========================= -->
+
+        <header class="bus-header">
+
+            <div class="bus-icon">
+                🚌
+            </div>
+
+            <h1>
+                UniSphere Smart Bus Tracking
+            </h1>
+
+            <p>
+                Real-Time University Bus Monitoring System
+            </p>
+
+            <div id="connectionStatus" class="connection">
+                🔴 Connecting...
+            </div>
+
+        </header>
+
+        <!-- ========================= -->
+        <!-- LIVE BUS INFORMATION -->
+        <!-- ========================= -->
+
+        <section class="bus-card">
+
+            <div class="info-item">
+                <h3>🚌 Bus Number</h3>
+                <p id="busNumber">Loading...</p>
+            </div>
+
+            <div class="info-item">
+                <h3>🟢 Status</h3>
+                <p id="busStatus">Offline</p>
+            </div>
+
+            <div class="info-item">
+                <h3>👨‍✈️ Driver</h3>
+                <p id="driverName">Loading...</p>
+            </div>
+
+            <div class="info-item">
+                <h3>🕒 Next Departure</h3>
+                <p id="departure">--</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📍 Current Stop</h3>
+                <p id="currentStop">University</p>
+            </div>
+
+            <div class="info-item">
+                <h3>⏱ ETA</h3>
+                <p id="eta">--</p>
+            </div>
+
+            <div class="info-item">
+                <h3>🚍 Speed</h3>
+                <p id="speed">0 km/h</p>
+            </div>
+                        <div class="info-item">
+                <h3>🛣 Route</h3>
+                <p id="route">Loading...</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📡 Last Update</h3>
+                <p id="lastUpdate">Waiting...</p>
+            </div>
+
+            <div class="info-item">
+                <h3>🔌 Socket Status</h3>
+                <p id="socketStatus">Connecting...</p>
+            </div>
+
+            <div class="info-item">
+                <h3>📍 Live Location</h3>
+                <p id="liveLocation">Waiting...</p>
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- LIVE MAP -->
+        <!-- ========================= -->
+
+        <section class="map-card">
+
+            <div id="map"></div>
+
+        </section>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- LEAFLET JS -->
+    <!-- ========================= -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- ========================= -->
+    <!-- SOCKET.IO -->
+    <!-- ========================= -->
+
+    <script src="../../config.js"></script>
+    <script>document.write('<scr' + 'ipt src="' + window.API_BASE + '/socket.io/socket.io.js"></scr' + 'ipt>');</script>
+
+    <!-- ========================= -->
+    <!-- BUS SCRIPT -->
+    <!-- ========================= -->
+
+    <script src="bus.js"></script>
+
+</body>
+
+</html>

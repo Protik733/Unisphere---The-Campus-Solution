@@ -1,0 +1,205 @@
+[
+  {
+    "title": "Odd Semester Commencement",
+    "keywords": [
+      "odd semester",
+      "semester start",
+      "3rd semester",
+      "5th semester",
+      "7th semester",
+      "9th semester",
+      "class start"
+    ],
+    "date": "2025-07-14",
+    "answer": "Odd Semester (3rd, 5th, 7th and 9th Semester) classes commence from 14 July 2025."
+  },
+  {
+    "title": "1st Semester Commencement",
+    "keywords": [
+      "first semester",
+      "1st semester",
+      "new batch",
+      "freshers"
+    ],
+    "date": "2025-08-04",
+    "answer": "First Semester classes commence from 4 August 2025."
+  },
+  {
+    "title": "Enrollment Odd Semester",
+    "keywords": [
+      "enrollment",
+      "registration",
+      "admission",
+      "odd semester enrollment"
+    ],
+    "startDate": "2025-07-01",
+    "endDate": "2025-07-19",
+    "answer": "Enrollment for continuing students is from 1 July to 19 July 2025."
+  },
+  {
+    "title": "Mid Semester Examination",
+    "keywords": [
+      "mid sem",
+      "mid semester",
+      "exam",
+      "internal exam"
+    ],
+    "startDate": "2025-09-01",
+    "endDate": "2025-09-06",
+    "answer": "Mid Semester Examination will be held from 1 September to 6 September 2025."
+  },
+  {
+    "title": "Unit Test II",
+    "keywords": [
+      "unit test",
+      "ut2",
+      "internal test"
+    ],
+    "startDate": "2025-09-22",
+    "endDate": "2025-09-26",
+    "answer": "Unit Test II will be conducted from 22 September to 26 September 2025."
+  },
+  {
+    "title": "Theory Examination Odd Semester",
+    "keywords": [
+      "semester exam",
+      "theory exam",
+      "odd semester exam",
+      "final exam"
+    ],
+    "startDate": "2025-11-24",
+    "endDate": "2025-12-12",
+    "answer": "Odd Semester Theory Examination will be held from 24 November to 12 December 2025."
+  },
+  {
+    "title": "Practical Examination",
+    "keywords": [
+      "practical",
+      "viva",
+      "sessional",
+      "skillx"
+    ],
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-23",
+    "answer": "Practical, Viva and SkillX examinations will be conducted from 15 December to 23 December 2025."
+  },
+  {
+    "title": "Odd Semester Result",
+    "keywords": [
+      "result",
+      "odd semester result",
+      "publication"
+    ],
+    "date": "2026-01-10",
+    "answer": "Odd Semester results will be published on 10 January 2026."
+  },
+  {
+    "title": "Even Semester Commencement",
+    "keywords": [
+      "even semester",
+      "2nd semester",
+      "4th semester",
+      "6th semester",
+      "8th semester"
+    ],
+    "date": "2026-01-01",
+    "answer": "Even Semester classes commence from 1 January 2026."
+  },
+  {
+    "title": "Convocation",
+    "keywords": [
+      "convocation",
+      "graduation"
+    ],
+    "date": "2026-02-03",
+    "answer": "6th Convocation will be held on 3 February 2026."
+  },
+  {
+    "title": "Alumni Meet",
+    "keywords": [
+      "alumni",
+      "alumni meet"
+    ],
+    "date": "2026-02-08",
+    "answer": "Alumni Meet is scheduled on 8 February 2026."
+  },
+  {
+    "title": "Cultural Festival",
+    "keywords": [
+      "cultural fest",
+      "fest",
+      "festival"
+    ],
+    "startDate": "2026-02-27",
+    "endDate": "2026-02-28",
+    "answer": "JIS University Cultural Festival will be held on 27 and 28 February 2026."
+  },
+  {
+    "title": "Even Semester Mid Semester",
+    "keywords": [
+      "mid semester even",
+      "even exam"
+    ],
+    "startDate": "2026-03-23",
+    "endDate": "2026-03-28",
+    "answer": "Even Semester Mid Semester Examination will be held from 23 March to 28 March 2026."
+  },
+  {
+    "title": "Farewell",
+    "keywords": [
+      "farewell",
+      "outgoing students"
+    ],
+    "date": "2026-04-23",
+    "answer": "Farewell Program for outgoing students will be held on 23 April 2026."
+  },
+  {
+    "title": "Even Semester Theory Exam",
+    "keywords": [
+      "even semester final exam",
+      "semester exam"
+    ],
+    "startDate": "2026-05-11",
+    "endDate": "2026-05-23",
+    "answer": "Even Semester Theory Examination will be held from 11 May to 23 May 2026."
+  },
+  {
+    "title": "Even Semester Result",
+    "keywords": [
+      "even semester result",
+      "result"
+    ],
+    "date": "2026-06-15",
+    "answer": "Even Semester results will be published on 15 June 2026."
+  },
+  {
+    "title": "Summer Quarter",
+    "keywords": [
+      "summer quarter",
+      "summer semester"
+    ],
+    "date": "2026-06-01",
+    "answer": "Summer Quarter classes commence from 1 June 2026."
+  },
+  {
+    "title": "Student Satisfaction Survey",
+    "keywords": [
+      "survey",
+      "student satisfaction"
+    ],
+    "startDate": "2026-06-25",
+    "endDate": "2026-06-27",
+    "answer": "Student Satisfaction Survey will be conducted from 25 June to 27 June 2026."
+  },
+  {
+    "title": "Academic Audit",
+    "keywords": [
+      "audit",
+      "aaa",
+      "academic audit"
+    ],
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-07",
+    "answer": "Academic and Administrative Audit will be held from 2 July to 7 July 2026."
+  }
+]

@@ -1,0 +1,500 @@
+/* =====================================
+   UNISPHERE ACADEMIC HELP DESK
+   PROFESSIONAL RESPONSIVE CSS
+===================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+background:
+linear-gradient(
+135deg,
+#eef2ff,
+#f8fafc
+);
+color:#0f172a;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* ===============================
+  HEADER
+================================ */
+
+.topbar{
+width:100%;
+background:#0f172a;
+color:white;
+padding:18px 5%;
+display:flex;
+align-items:center;
+gap:20px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.back-btn{
+background:#2563eb;
+border:none;
+color:white;
+padding:12px 22px;
+border-radius:12px;
+cursor:pointer;
+font-weight:600;
+}
+
+.back-btn:hover{
+background:#1d4ed8;
+}
+
+.topbar h1{
+font-size:clamp(22px,3vw,32px);
+}
+
+.topbar p{
+color:#cbd5e1;
+margin-top:5px;
+}
+
+/* ===============================
+  CHATBOT
+================================ */
+
+.chatbot{
+width:90%;
+max-width:1000px;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:30px;
+box-shadow:0 20px 45px rgba(0,0,0,.12);
+}
+
+.chat-header{
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#7c3aed
+);
+color:white;
+padding:25px;
+border-radius:25px;
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.avatar{
+width:65px;
+height:65px;
+background:white;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+}
+
+.chat-header h2{
+font-size:26px;
+}
+
+.chat-header span{
+margin-left:auto;
+background:#dcfce7;
+color:#15803d;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+}
+
+.chat-box{
+height:350px;
+margin-top:25px;
+padding:25px;
+background:#f8fafc;
+border-radius:25px;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* BOT MESSAGE */
+.bot-msg{
+background:white;
+padding:20px;
+border-radius:20px;
+max-width:85%;
+display:flex;
+gap:15px;
+line-height:1.6;
+box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+/* USER MESSAGE */
+.user-msg{
+background:#2563eb;
+color:white;
+padding:15px 20px;
+border-radius:20px 20px 5px 20px;
+max-width:75%;
+align-self:flex-end;
+}
+
+/* INPUT */
+.chat-input{
+display:flex;
+gap:15px;
+margin-top:20px;
+padding:12px;
+background:#f1f5f9;
+border-radius:20px;
+}
+
+.chat-input input{
+flex:1;
+border:none;
+outline:none;
+padding:16px;
+border-radius:12px;
+font-size:16px;
+}
+
+.chat-input button{
+background:#2563eb;
+color:white;
+border:none;
+padding:0 30px;
+border-radius:12px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.chat-input button:hover{
+background:#1d4ed8;
+}
+
+/* ===============================
+  QUICK ACCESS
+================================ */
+
+.quick-access{
+width:90%;
+max-width:1200px;
+margin:70px auto;
+text-align:center;
+}
+
+.quick-access h2{
+font-size:35px;
+}
+
+.quick-access p{
+color:#64748b;
+margin-top:10px;
+}
+
+.cards{
+margin-top:40px;
+display:grid;
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(250px,1fr)
+);
+gap:25px;
+}
+
+.card{
+background:white;
+padding:35px 25px;
+border-radius:25px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:50px;
+margin-bottom:15px;
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#64748b;
+line-height:1.6;
+}
+
+.card button{
+margin-top:20px;
+width:100%;
+padding:13px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:12px;
+cursor:pointer;
+}
+
+/* ===============================
+  RESULT
+================================ */
+
+#resultContainer{
+width:90%;
+max-width:1000px;
+margin:40px auto;
+scroll-margin-top:100px;
+}
+
+.result-card{
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+animation:show .4s ease;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.department-select{
+width:100%;
+padding:15px;
+margin-top:25px;
+border-radius:15px;
+border:1px solid #cbd5e1;
+font-size:16px;
+background:white;
+}
+
+.open-drive{
+width:100%;
+margin-top:20px;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#2563eb;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.open-drive:hover{
+background:#1d4ed8;
+}
+
+/* JSON DATA BOX */
+.info-box{
+background:#f8fafc;
+padding:18px;
+border-radius:15px;
+margin-top:15px;
+border-left:5px solid #2563eb;
+}
+
+/* ===============================
+  TABLET
+================================ */
+
+@media(max-width:900px){
+.chat-header{
+flex-wrap:wrap;
+}
+.chat-header span{
+margin-left:0;
+}
+}
+
+/* ===============================
+  MOBILE
+================================ */
+
+@media(max-width:600px){
+
+.topbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.chatbot{
+width:95%;
+padding:15px;
+}
+
+.chat-header{
+flex-direction:column;
+text-align:center;
+}
+
+.chat-header span{
+margin:auto;
+}
+
+.chat-box{
+height:300px;
+}
+
+.bot-msg,
+.user-msg{
+max-width:95%;
+}
+
+.chat-input{
+flex-direction:column;
+}
+
+.chat-input button{
+height:50px;
+}
+
+.quick-access{
+width:95%;
+}
+
+.card{
+padding:25px;
+}
+
+}
+
+/* SMALL PHONE */
+@media(max-width:360px){
+.topbar h1{
+font-size:20px;
+}
+.card h3{
+font-size:18px;
+}
+}
+
+/* =================================
+    ACADEMIC / HOLIDAY RESOURCE FIX
+================================= */
+
+/* =================================================
+   ACADEMIC / HOLIDAY RESOURCE FIX (UPDATED)
+================================================= */
+
+.resource-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: #f8fafc;
+    border-radius: 18px;
+    border-left: 5px solid #2563eb;
+    margin-top: 20px;
+}
+
+.resource-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1;
+    min-width: 0; /* Ensures flex child doesn't overflow */
+}
+
+.resource-content h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #0f172a;
+}
+
+.resource-content p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    width: auto;
+    margin-top: 5px; /* Adds safe breathing room from paragraph */
+    transition: .3s;
+}
+
+.pdf-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.year-badge{
+
+    width:85px;
+    height:85px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #f8fafc,
+        #e2e8f0
+    );
+
+    color:#0f172a;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:18px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+    flex-shrink:0;
+
+}
+
+@media(max-width: 600px) {
+    .resource-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .year-badge {
+        width: 100%;
+        height: 60px;
+    }
+    .pdf-btn {
+        width: 100%;
+    }
+}

@@ -1,0 +1,102 @@
+[
+  {
+    "title": "University Name",
+    "keywords": [
+      "jis",
+      "jis university",
+      "university name",
+      "college name",
+      "জিস",
+      "বিশ্ববিদ্যালয়"
+    ],
+    "answer": "JIS University is a private university located at 81, Nilgunj Road, Agarpara, Kolkata, West Bengal - 700109, India."
+  },
+  {
+    "title": "University Address",
+    "keywords": [
+      "address",
+      "location",
+      "campus",
+      "where is jis university",
+      "ঠিকানা"
+    ],
+    "answer": "JIS University is located at 81, Nilgunj Road, Agarpara, Kolkata, West Bengal - 700109."
+  },
+  {
+    "title": "Main Building",
+    "keywords": [
+      "main building",
+      "building",
+      "academic building"
+    ],
+    "answer": "Most academic classrooms, laboratories and administrative offices are located in the Main Building."
+  },
+  {
+    "title": "Administrative Offices",
+    "keywords": [
+      "office",
+      "administration",
+      "admin",
+      "administrative office"
+    ],
+    "answer": "Admission Cell, Accounts Cell, Registrar Office and Placement Cell are located on the Ground Floor. Examination Cell and Library are located on the First Floor."
+  },
+  {
+    "title": "Engineering Department",
+    "keywords": [
+      "engineering",
+      "btech",
+      "cse",
+      "ai ml",
+      "department"
+    ],
+    "answer": "The School of Engineering and Technology offers undergraduate and postgraduate programmes with classrooms, laboratories, tutorial rooms, seminar halls and workshops."
+  },
+  {
+    "title": "Library",
+    "keywords": [
+      "library",
+      "books",
+      "reading room"
+    ],
+    "answer": "The Central Library is located on the First Floor and provides books, journals, digital resources and reading facilities."
+  },
+  {
+    "title": "Placement Cell",
+    "keywords": [
+      "placement",
+      "internship",
+      "job",
+      "career"
+    ],
+    "answer": "The Placement Cell assists students with internships, campus recruitment, placement drives and career guidance."
+  },
+  {
+    "title": "Examination Cell",
+    "keywords": [
+      "exam",
+      "result",
+      "backlog",
+      "admit card"
+    ],
+    "answer": "The Examination Cell handles examination forms, admit cards, results and examination-related support."
+  },
+  {
+    "title": "Admission Cell",
+    "keywords": [
+      "admission",
+      "new admission",
+      "counselling"
+    ],
+    "answer": "The Admission Cell provides admission guidance, application support and document verification."
+  },
+  {
+    "title": "Accounts Cell",
+    "keywords": [
+      "fees",
+      "payment",
+      "accounts"
+    ],
+    "answer": "The Accounts Cell manages fee payment, receipts and other financial services."
+  }
+]

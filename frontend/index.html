@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unisphere - The Campus Solution</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+        <!-- LOGO SECTION -->
+        <div class="container">
+        <!-- Ei logo-box div-er bhetore bosao -->
+        <div class="logo-box">
+            <img src="logo.png" alt="Unisphere Logo" class="app-logo">
+            <h2>Welcome to Unisphere<br><span style="font-size: 16px; font-weight: normal; color: #555;">The Campus Solution</span></h2>
+        </div>
+
+        <!-- TOGGLE BUTTONS -->
+        <div id="toggleBtns" class="toggle-btns">
+            <button id="loginBtn" class="active" onclick="switchForm('login')">Login</button>
+            <button id="signupBtn" onclick="switchForm('signup')">Sign Up</button>
+        </div>
+
+        <!-- 1. LOGIN FORM -->
+        <form id="loginForm" class="auth-form">
+            <select id="loginRole" required>
+                <option value="student">Student</option>
+                <option value="canteen_authority">Canteen Authority</option>
+                <option value="report_cell">Report Cell</option>
+                <option value="driver"> Bus Driver </option>
+            
+            </select>
+            <input type="text" id="loginKey" placeholder="Email or Roll/Employee ID" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            
+            <a href="#" onclick="showForgotForm()" style="text-align: right; font-size: 13px; color: #1a4f8b; text-decoration: none;">Forgot Password?</a>
+            
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+
+        <!-- 2. FORGOT PASSWORD FORM -->
+        <form id="forgotForm" class="auth-form hidden">
+            <h3 style="color: #1a4f8b; margin-bottom: 10px;">Reset Password</h3>
+            
+            <!-- Forgot Step 1 -->
+            <div id="forgotStep1">
+                <input type="email" id="forgotEmail" placeholder="Enter your registered Email" required style="margin-bottom: 15px;">
+                <button type="button" class="submit-btn" onclick="sendForgotOtp()">Send Reset OTP</button>
+                <a href="#" onclick="switchForm('login')" style="display:block; margin-top:15px; font-size: 13px; text-decoration: none; text-align: center;">Back to Login</a>
+            </div>
+
+            <!-- Forgot Step 2 -->
+            <div id="forgotStep2" class="hidden">
+                <p style="font-size: 14px; color: green; margin-bottom: 15px; font-weight: bold;">OTP sent to your email! 📩</p>
+                <input type="text" id="forgotOtpCode" placeholder="Enter 6-digit OTP" required style="margin-bottom: 10px;">
+                <input type="password" id="newPassword" placeholder="New Password" required style="margin-bottom: 10px;">
+                <input type="password" id="confirmNewPassword" placeholder="Confirm New Password" required style="margin-bottom: 15px;">
+                <button type="button" class="submit-btn" onclick="resetPassword()">Reset Password</button>
+            </div>
+        </form>
+
+        <!-- 3. SIGNUP FORM -->
+        <form id="signupForm" class="auth-form hidden">
+            <!-- Signup Step 1 -->
+            <div id="step1">
+                <select id="signupRole" required>
+                    <option value="student">Student</option>
+                    <option value="canteen_authority">Canteen Authority</option>
+                    <option value="report_cell">Report Cell</option>
+                     <option value="driver"> Bus Driver </option>
+                    
+                </select>
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email Address" required>
+                <input type="text" id="signupUid" placeholder="Roll No / Employee ID" required>
+                <input type="text" id="signupPhone" placeholder="Phone Number" required>
+                <button type="button" class="submit-btn" onclick="sendOtp()">Send OTP</button>
+            </div>
+
+            <!-- Signup Step 2 -->
+            <div id="step2" class="hidden">
+                <p style="font-size: 14px; color: green; margin-bottom: 15px; font-weight: bold;">OTP sent to your email! 📩</p>
+                <input type="text" id="otpCode" placeholder="Enter 6-digit OTP" style="margin-bottom: 10px;">
+                <input type="password" id="signupPassword" placeholder="New Password" style="margin-bottom: 10px;">
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" style="margin-bottom: 15px;">
+                <button type="button" class="submit-btn" onclick="verifyAndCreate()">Create Profile</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

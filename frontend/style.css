@@ -1,0 +1,127 @@
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background-color: #f4f7f6; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; /* height এর বদলে min-height দিলে স্ক্রল করতে সুবিধা হয় */
+    padding: 20px; /* 🌟 মোবাইলে স্ক্রিনের বর্ডারের সাথে যেন লেগে না যায় */
+}
+
+.container { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* শ্যাডোটি একটু সফট করা হয়েছে */
+    width: 100%; 
+    max-width: 400px; 
+    text-align: center; 
+}
+
+.logo-box img { 
+    max-width: 120px; 
+    margin-bottom: 10px; 
+}
+
+.logo-box h2 { 
+    color: #1a4f8b; 
+    margin-bottom: 20px; 
+    font-size: 22px; 
+}
+
+.toggle-btns { 
+    display: flex; 
+    justify-content: center; 
+    margin-bottom: 20px; 
+    gap: 10px; 
+}
+
+.toggle-btns button { 
+    flex: 1; 
+    padding: 12px; 
+    border: none; 
+    background: #e0e0e0; 
+    cursor: pointer; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    transition: 0.3s ease; 
+}
+
+.toggle-btns button.active { 
+    background: #1a4f8b; 
+    color: white; 
+    box-shadow: 0 4px 10px rgba(26, 79, 139, 0.3); /* অ্যাক্টিভ বাটনে সুন্দর শ্যাডো */
+}
+
+.auth-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+input, select { 
+    width: 100%; 
+    padding: 14px; /* মোবাইলে টাইপ করার সুবিধার জন্য প্যাডিং বাড়ানো হয়েছে */
+    border: 1.5px solid #cbd5e1; 
+    border-radius: 8px; 
+    font-size: 15px; 
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* 🌟 ম্যাজিক: ইনপুটে ট্যাপ করলে সুন্দর বর্ডার আসবে */
+input:focus, select:focus {
+    border-color: #1a4f8b;
+    box-shadow: 0 0 0 3px rgba(26, 79, 139, 0.1);
+}
+
+.submit-btn { 
+    background: #1a4f8b; 
+    color: white; 
+    border: none; 
+    padding: 14px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    font-weight: bold; 
+    width: 100%; 
+    margin-top: 10px; 
+    transition: all 0.3s ease; 
+}
+
+.submit-btn:hover { 
+    background: #123860; 
+    transform: translateY(-2px); /* হোভার করলে বাটন সামান্য উপরে উঠবে */
+}
+
+.submit-btn:active {
+    transform: translateY(0); /* ট্যাপ করলে রিয়েল বাটনের মতো ফিল দেবে */
+}
+
+/* ======================================
+   📱 MOBILE RESPONSIVENESS
+   ====================================== */
+@media (max-width: 480px) {
+    .container {
+        padding: 25px 15px; /* ছোট স্ক্রিনে ভেতরের জায়গা একটু কমানো হয়েছে */
+    }
+    
+    .logo-box h2 {
+        font-size: 20px;
+    }
+    
+    .toggle-btns button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

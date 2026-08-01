@@ -1,0 +1,143 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+body { 
+    background: #f4f6f9; 
+    min-height: 100vh; 
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.sidebar { 
+    width: 260px; 
+    background: #0f172a; 
+    color: white; 
+    padding: 25px 20px; 
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    overflow-y: auto;
+}
+
+.sidebar h2 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+    color: #38bdf8; 
+}
+
+.sidebar button { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 10px; 
+    border: none; 
+    background: #1e293b; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 8px; 
+    text-align: left; 
+    font-size: 15px; 
+    transition: 0.3s ease; 
+}
+
+.sidebar button:hover { 
+    background: #334155; 
+    transform: scale(1.02); 
+}
+
+.main { 
+    flex: 1; 
+    padding: 30px; 
+    width: 100%; 
+    max-width: 900px; 
+    margin: 0 auto; 
+}
+
+.card { 
+    background: white; 
+    padding: 20px; 
+    margin-bottom: 20px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+
+/* =========================================
+   📱 RESPONSIVE DESIGN (FOR MOBILE PHONES) 
+   ========================================= */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Phone e pasapasi theke upore-niche hobe */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar puro screen jurbe */
+        height: auto; /* Fixed height thakbe na */
+        position: relative; 
+        padding: 15px;
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .sidebar h2 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Filter dropdown text ar select box */
+    .sidebar label, .sidebar select {
+        width: 100%;
+    }
+
+    /* Button gulo 2 to kore pasapasi bosbe phone e */
+    .sidebar button {
+        width: 48%; 
+        text-align: center;
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    /* Logout button ta niche full width thakbe */
+    .sidebar button[onclick="logout()"] {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .sidebar hr {
+        display: none; /* Phone e daag ta bad diye space bachano hocche */
+    }
+
+    .main {
+        padding: 15px; /* Phone e paser padding komano holo */
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    /* JS theke asha inline grid styling override korar jonno */
+    .card div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important; /* Phone e 1 line e asbe */
+        gap: 5px !important;
+    }
+
+    /* JS theke asha inline flex styling override korar jonno */
+    .card div[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+
+    .card div[style*="display:flex"] button, 
+    .card div[style*="display:flex"] input {
+        width: 100% !important; /* Button ar input phone e full width hobe */
+    }
+}

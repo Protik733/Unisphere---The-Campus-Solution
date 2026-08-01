@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+UniSphere Academic Help Desk
+</title>
+
+<link rel="stylesheet" href="helpdesk.css">
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+
+<button onclick="goBack()" class="back-btn">
+← Back
+</button>
+
+
+<div>
+
+<h1>
+🎓 UniSphere Academic Help Desk
+</h1>
+
+<p>
+Smart Academic Information Assistant
+</p>
+
+</div>
+
+
+</header>
+
+
+
+
+
+<section class="chatbot">
+
+
+<div class="chat-header">
+
+
+<div class="avatar">
+🤖
+</div>
+
+
+<div>
+
+<h2>
+UniSphere AI Assistant
+</h2>
+
+
+<p>
+Academic Information Assistant
+</p>
+
+
+</div>
+
+
+<span>
+🟢 Online
+</span>
+
+
+</div>
+
+
+
+
+
+<div id="chatBox" class="chat-box">
+
+
+<div class="bot-msg">
+
+
+🤖
+
+<div>
+
+Hello 👋
+
+<br><br>
+
+How can I help you?
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="chat-input">
+
+
+<input
+id="searchBox"
+placeholder="Type your query..."
+>
+
+
+<button onclick="sendMessage()">
+
+Send ➤
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="quick-access">
+
+
+<h2>
+📚 Quick Access
+</h2>
+
+
+<p>
+Academic resources at your fingertips
+</p>
+
+
+
+<div class="cards">
+
+
+
+<div class="card" onclick="openPYQ()">
+
+<div>
+📄
+</div>
+
+<h3>
+Previous Year Paper
+</h3>
+
+<p>
+Department wise question papers
+</p>
+
+
+<button>
+Open
+</button>
+
+</div>
+
+
+
+
+
+<div class="card" onclick="openSyllabus()">
+
+<div>
+📘
+</div>
+
+<h3>
+Syllabus
+</h3>
+
+<p>
+Department wise syllabus
+</p>
+
+
+<button>
+Open
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="card" onclick="showCalendar()">
+
+<div>
+📅
+</div>
+
+<h3>
+Academic Calendar
+</h3>
+
+
+<p>
+Semester schedule information
+</p>
+
+
+<button>
+View
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card" onclick="showRoutine()">
+
+
+<div>
+📝
+</div>
+
+
+<h3>
+Exam Routine
+</h3>
+
+
+<p>
+Examination schedule
+</p>
+
+
+<button>
+View
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card" onclick="showHoliday()">
+
+
+<div>
+🎉
+</div>
+
+
+<h3>
+Holiday List
+</h3>
+
+
+<p>
+University holiday information
+</p>
+
+
+<button>
+View
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section id="resultContainer">
+
+</section>
+
+
+
+
+<script src="../../config.js"></script>
+<script src="helpdesk.js"></script>
+
+
+</body>
+
+</html>
