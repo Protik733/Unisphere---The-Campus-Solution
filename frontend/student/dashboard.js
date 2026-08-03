@@ -361,9 +361,20 @@ async function showIssues() {
     content.innerHTML = `<button class="back-btn" onclick="showHome()">← Back</button><h2>📋 Loading...</h2>`;
 
     try {
-        const res = await fetch(`${window.API_BASE}/api/issues`, {
+        const res = await fetch(`${window.API_BASE}/api/issues?scope=mine`, {
             headers: { "Authorization": `Bearer ${token}` }
         });
+        if (!res.ok) {
+        let serverMsg = "";
+        try {
+            serverMsg = (await res.json()).message;
+        } catch (_) {}
+
+        throw new Error(
+            `Server responded with status ${res.status}${serverMsg ? " — " + serverMsg : ""}`
+        );
+    }
+
         const myIssues = await res.json(); 
 
         let html = `<button class="back-btn" onclick="showHome()">← Back</button><h2>📋 My Reports</h2>`;
@@ -378,7 +389,7 @@ async function showIssues() {
                     </div>
                 `).join("");
 
-                let docsHtml = i.documents.map((doc, index) => `<a href="${doc}" download="My_Attachment_${index+1}" style="display:inline-block; margin-right:10px; color:#2563eb;">📎 File ${index+1}</a>`).join("");
+                let docsHtml = `<button onclick="loadMyAttachments('${i._id}')" style="background:#e2e8f0; color:#2563eb; font-weight:bold; padding:6px 12px; border:none; border-radius:5px; cursor:pointer;">📎 Load My Files</button><span id="mydocs-${i._id}"></span>`;
 
                 let statusColor = i.status === 'Resolved' ? '#16a34a' : (i.status === 'Rejected' ? '#dc2626' : (i.status === 'Pending' ? '#3b82f6' : '#f59e0b'));
 
@@ -388,7 +399,11 @@ async function showIssues() {
                         <div>
                             <h3 style="margin:0;">${i.title || "Untitled Report"}</h3>
                             <p style="color:#64748b; font-size:14px; margin-top:5px;">Category: ${i.category}</p>
-                        </div>
+                        
+                        <p style="color:#94a3b8; font-size:12px; margin-top:2px;">🕒 Submitted: ${new Date(i.createdAt).toLocaleString()}</p>
+                        
+                            </div>
+                    
                         <span style="background:${statusColor}; color:white; padding:5px 12px; border-radius:20px; font-size:12px; font-weight:bold;">${i.status}</span>
                     </div>
                     
@@ -423,6 +438,24 @@ async function showIssues() {
         alert("Failed to load issues.");
     }
 }
+
+async function loadMyAttachments(id) {
+    const span = document.getElementById(`mydocs-${id}`);
+    span.innerHTML = ` Loading...`;
+    try {
+        const res = await fetch(`${window.API_BASE}/api/issues/${id}/documents`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
+        if (!res.ok) throw new Error(`Status ${res.status}`);
+        const data = await res.json();
+        const docs = data.documents || [];
+        span.innerHTML = docs.length === 0 ? ` No attachments.` :
+            docs.map((doc, index) => ` <a href="${doc}" download="My_Attachment_${index+1}" style="color:#2563eb; margin-left:8px;">📎 File ${index+1}</a>`).join("");
+    } catch(err) {
+        span.innerHTML = ` Failed to load.`;
+    }
+}
+window.loadMyAttachments = loadMyAttachments;
 
 // ======================================
 // NEW: EDIT ISSUE FUNCTION

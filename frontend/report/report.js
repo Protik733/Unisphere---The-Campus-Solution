@@ -42,11 +42,15 @@ try {
         const selectedCategory = categorySelect ? categorySelect.value : "ALL";
 
         try {
-            const res = await fetch(`${window.API_BASE}/api/issues`, { 
+            const res = await fetch(`${window.API_BASE}/api/issues?scope=all`, { 
                 headers: { "Authorization": `Bearer ${token}` } 
             });
             
-            if (!res.ok) throw new Error(`Server connection failed! Status: ${res.status}`);
+         if (!res.ok) {
+                let serverMsg = "";
+                try { serverMsg = (await res.json()).message; } catch(_) {}
+                throw new Error(`Server connection failed! Status: ${res.status}${serverMsg ? " — " + serverMsg : ""}`);
+            }
             
             const data = await res.json();
             
@@ -68,7 +72,7 @@ try {
 
             filtered.forEach(i => {
                 const commentsArray = i.comments || [];
-                const docsArray = i.documents || [];
+                const docsArray = []; // documents ekhon lazy-load hobe
 
                 let chatHtml = commentsArray.map(c => `
                     <div style="padding:10px; margin-bottom:10px; background:${c.sender === 'Student' ? '#e0f2fe' : '#dcfce7'}; border-radius:5px; width:fit-content; max-width:80%; margin-${c.sender === 'Student' ? 'left' : 'right'}:auto;">
@@ -89,6 +93,8 @@ try {
                         <p><b>🎓 Roll No:</b> ${i.studentRoll || "N/A"}</p>
                         <p><b>📧 Email:</b> ${i.studentEmail || "N/A"}</p>
                         <p><b>🆔 Auth ID:</b> ${i.studentId}</p>
+                      <p><b>🕒 Submitted:</b> ${new Date(i.createdAt).toLocaleString()}</p>
+                    
                     </div>
                     
                     <div style="display:flex; justify-content:space-between; align-items:flex-start;">
@@ -101,7 +107,9 @@ try {
                     
                     <p style="margin-top:15px; font-size:16px; color:#1e293b; background:#f1f5f9; padding:12px; border-radius:5px; border-left: 3px solid #cbd5e1;"><b>Description:</b> <br>${i.text || "No description provided."}</p>
                     
-                    ${docsArray.length > 0 ? `<div style="margin: 15px 0;">${docsHtml}</div>` : ''}
+                    <div style="margin: 15px 0;" id="docs-${i._id}">
+                        <button onclick="loadAttachments('${i._id}')" style="background:#e2e8f0; color:#2563eb; font-weight:bold; padding:8px 12px; border:none; border-radius:5px; cursor:pointer;">📎 Load Attachments</button>
+                    </div>
                     
                     <div style="margin-top:15px; border-top:1px solid #eee; padding-top:15px;">
                         <label style="font-weight:bold; color:#dc2626;">Internal Notes (Hidden from Student):</label>
@@ -196,6 +204,25 @@ try {
     window.updateStatus = updateStatus;
     window.updateNotes = updateNotes;
     window.logout = logout;
+
+    async function loadAttachments(id) {
+        const container = document.getElementById(`docs-${id}`);
+        container.innerHTML = `<span style="color:#64748b;">Loading...</span>`;
+        try {
+            const res = await fetch(`${window.API_BASE}/api/issues/${id}/documents`, {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+            if (!res.ok) throw new Error(`Status ${res.status}`);
+            const data = await res.json();
+            const docs = data.documents || [];
+            container.innerHTML = docs.length === 0
+                ? `<span style="color:#94a3b8;">No attachments.</span>`
+                : docs.map((doc, index) => `<a href="${doc}" download="Student_Doc_${index+1}" style="display:inline-block; margin-right:15px; margin-bottom:10px; padding:8px 12px; background:#e2e8f0; border-radius:5px; color:#2563eb; font-weight:bold; text-decoration:none;">📎 Download File ${index+1}</a>`).join("");
+        } catch(err) {
+            container.innerHTML = `<span style="color:#dc2626;">Failed to load attachments.</span>`;
+        }
+    }
+    window.loadAttachments = loadAttachments;
 
     // Direct call, bypass DOMContentLoaded bug!
     setTimeout(() => {

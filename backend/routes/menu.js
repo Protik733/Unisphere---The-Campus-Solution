@@ -77,7 +77,7 @@ router.put("/update/:id", checkRole(["canteen_authority"]), async (req, res) => 
         const item = await Menu.findByIdAndUpdate(
             req.params.id,
             { stock },
-            { new: true }
+            { returnDocument: "after" }
         );
 
         if (!item) {

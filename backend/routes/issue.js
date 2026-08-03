@@ -3,17 +3,38 @@ const router = express.Router();
 const Issue = require("../models/Issue");
 const checkRole = require("../middleware/checkRole");
 
-// ১. GET ISSUES (With Filters)
+// ======================================================
+// ১. GET ISSUES (Scope-based)
+//    scope=mine -> caller's own submitted issues (Student page)
+//    scope=all  -> every issue (Report Cell page only)
+//    Heavy "documents" (base64 attachments) field is excluded here
+//    to avoid MongoDB's 32MB in-memory sort limit; attachments are
+//    lazy-loaded per-issue via route #8 below.
+// ======================================================
 router.get("/", checkRole(["student", "report_cell"]), async (req, res) => {
     try {
         let issues;
-        if (req.user.role === "student") {
-            issues = await Issue.find({ studentId: req.user.uid }).sort({ createdAt: -1 });
-        } else if (req.user.role === "report_cell") {
-            issues = await Issue.find().sort({ createdAt: -1 });
+        const scope = req.query.scope; // "mine" or "all"
+
+        // "all" is only honored for report_cell / super admin accounts.
+        const wantsAll = scope === "all" && (req.user.isSuperAdmin === true || req.user.role === "report_cell");
+
+        if (wantsAll) {
+            issues = await Issue.find()
+                .select("-documents")
+                .sort({ createdAt: -1 })
+                .allowDiskUse(true);
+        } else {
+            // Student page (super admin included) -> only their own issues
+            issues = await Issue.find({ studentId: req.user.uid })
+                .select("-documents")
+                .sort({ createdAt: -1 })
+                .allowDiskUse(true);
         }
+
         res.json(issues);
     } catch(err) {
+        console.error("GET /api/issues error:", err);
         res.status(500).json({ message: err.message });
     }
 });
@@ -39,7 +60,7 @@ router.put("/edit/:id", checkRole(["student"]), async (req,res)=>{
         if(issue.status !== "Pending") {
             return res.status(400).json({ success: false, message: "Cannot edit after processing starts!" });
         }
-        const updatedIssue = await Issue.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedIssue = await Issue.findByIdAndUpdate(req.params.id, req.body, { returnDocument: "after" });
         res.json({ success:true, issue: updatedIssue });
     } catch(err){
         res.status(500).json({ success:false, message:err.message });
@@ -67,7 +88,7 @@ router.put("/upload/:id", checkRole(["student"]), async (req, res) => {
         const issue = await Issue.findByIdAndUpdate(
             req.params.id,
             { $push: { documents: document } },
-            { new: true }
+            { returnDocument: "after" }
         );
         res.json({ success: true, issue });
     } catch(err) {
@@ -82,7 +103,7 @@ router.put("/update/:id", checkRole(["report_cell"]), async (req,res)=>{
         if(req.body.status) updateData.status = req.body.status;
         if(req.body.internalNotes !== undefined) updateData.internalNotes = req.body.internalNotes;
 
-        const issue = await Issue.findByIdAndUpdate(req.params.id, updateData, { new: true });
+        const issue = await Issue.findByIdAndUpdate(req.params.id, updateData, { returnDocument: "after" });
         res.json({ success:true, issue });
     } catch(err){
         res.status(500).json({ success:false, message:err.message });
@@ -98,11 +119,32 @@ router.put("/comment/:id", checkRole(["student", "report_cell"]), async (req,res
         const issue = await Issue.findByIdAndUpdate(
             req.params.id,
             { $push: { comments: { sender: senderRole, text: text, time: new Date() } } },
-            { new: true }
+            { returnDocument: "after" }
         );
         res.json({ success:true, issue });
     } catch(err){
         res.status(500).json({ success:false, message:err.message });
+    }
+});
+
+// ======================================================
+// ৮. GET DOCUMENTS OF A SINGLE ISSUE (Lazy Load)
+//    List view (route #1) excludes "documents" to keep it light;
+//    this route fetches attachments only when the user actually
+//    clicks "Load My Files" / "Load Attachments".
+// ======================================================
+router.get("/:id/documents", checkRole(["student", "report_cell"]), async (req, res) => {
+    try {
+        const issue = await Issue.findById(req.params.id).select("documents studentId");
+        if (!issue) return res.status(404).json({ message: "Issue not found" });
+
+        if (req.user.role === "student" && !req.user.isSuperAdmin && issue.studentId !== req.user.uid) {
+            return res.status(403).json({ message: "Access Denied" });
+        }
+
+        res.json({ documents: issue.documents || [] });
+    } catch(err) {
+        res.status(500).json({ message: err.message });
     }
 });
 
